@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="Layout/Layout :: Head"/>
+<body>
+
+	<header th:replace="Layout/Layout :: NavBar"/>
+
+	<div class="container">
+		<h1
+			class="text-secondary border border-success border-top-0 border-left-0 border-right-0"
+			th:text="${titulo}"></h1>
+		<table class="table table-striped">
+			<thead class="bg-light">
+				<tr>
+					<th>Id Producto</th>
+					<th>Cantidad del Producto</th>
+					<th>id de la preventa</th>
+					<th>Se efectuo la Venta</th>
+					<th>Id Factura</th>
+					<th>Valor en pesos Descontado</th>
+					<th>Lugar del Despacho</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="producto: ${productos}">
+					<td th:text="${producto.idProducto}"></td>
+					<td th:text="${producto.cantidadProducto}"></td>
+					<td th:text="${producto.idPreventa}"></td>
+					<td th:text="${producto.vendido}"></td>
+					<td th:text="${producto.idFactura}"></td>
+					<td th:text="${producto.valorDescontado}"></td>
+					<td th:text="${producto.lugarDespacho}"></td>
+					<td><a class="btn btn-danger btn-xs" th:href="@{eliminar/} + ${producto.idProducto}" th:text="'eliminar'" onclick="return confirm('Estás seguro que quieres eliminar?');"></a></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+	<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
