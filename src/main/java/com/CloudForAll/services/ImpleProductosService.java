@@ -40,10 +40,9 @@ public class ImpleProductosService implements Iproductos {
 	}
 
 	@Override
-	public List<Productos> findByidProductoAndcantidadProductoAndidPreventa(String idProducto, String cantidadProducto,
-			String idPreventa) {
-		productos.findByidProductoAndcantidadProductoAndidPreventa(idProducto, cantidadProducto, idPreventa);
-		return null;
+	public List<Productos> findByidProductoAndcantidadProducto(Long idProducto, int cantidadProducto) {
+		return productos.findByIdProductoAndCantidadProducto(idProducto, cantidadProducto);
+		 
 	}
 
 }

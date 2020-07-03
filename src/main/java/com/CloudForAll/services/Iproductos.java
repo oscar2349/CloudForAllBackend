@@ -15,6 +15,6 @@ public interface Iproductos {
 
 	public void delete(Long id);
 	
-	public List<Productos> findByidProductoAndcantidadProductoAndidPreventa(String idProducto, String cantidadProducto,String idPreventa);
+	public List<Productos> findByidProductoAndcantidadProducto(Long idProducto, int cantidadProducto);
 
 }

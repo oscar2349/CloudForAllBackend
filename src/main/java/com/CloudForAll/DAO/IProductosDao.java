@@ -8,6 +8,6 @@ import com.CloudForAll.Entity.Productos;
 
 public interface IProductosDao extends CrudRepository<Productos, Long>{
 	
-	List<Productos> findByidProductoAndcantidadProductoAndidPreventa(String idProducto, String cantidadProducto,String idPreventa);
+	List<Productos> findByIdProductoAndCantidadProducto(Long idProducto, int cantidadProducto);
 
 }

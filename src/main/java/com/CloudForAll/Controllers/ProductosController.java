@@ -7,12 +7,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 import java.util.Map;
 
 import com.CloudForAll.Entity.Productos;
 import com.CloudForAll.services.Iproductos;
 
-@Controller
+//@Controller
 @RequestMapping("cloudforall")
 public class ProductosController {
 
@@ -46,10 +48,11 @@ public class ProductosController {
 	@PostMapping(value = "/form")
 	public String buscar(Productos producto,Map<String, Object> model) {
 		model.put("titulo", "producto");
+		//model.put("productos", productos.findOne((producto.getIdProducto().longValue())));
 		
-		model.put("productos", productos.findOne((producto.getIdProducto().longValue())));
-		
-		
+		List<Productos> ListaProductos = productos.findByidProductoAndcantidadProducto(producto.getIdProducto(), producto.getCantidadProducto());
+		System.out.println(ListaProductos.size());
+		model.put("productos", ListaProductos);
 		return "productos";
 	}
 	
